@@ -1,4 +1,4 @@
-package com.servicios.estudiantes.app.infraestructura.adaptadores.output;
+package com.servicios.estudiantes.app.infraestructura.adaptadores.output.persistencia;
 
 import com.servicios.estudiantes.app.aplicacion.puertos.output.EstudiantePersistenciaPuerto;
 import com.servicios.estudiantes.app.dominio.modelo.Estudiante;

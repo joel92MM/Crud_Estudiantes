@@ -1,4 +1,4 @@
-package com.servicios.estudiantes.app.infraestructura.adaptadores;
+package com.servicios.estudiantes.app.infraestructura.adaptadores.input.rest;
 
 import com.servicios.estudiantes.app.aplicacion.puertos.input.EstudianteServicioPuerto;
 import com.servicios.estudiantes.app.infraestructura.adaptadores.input.rest.mapper.EstudianteRestMapper;

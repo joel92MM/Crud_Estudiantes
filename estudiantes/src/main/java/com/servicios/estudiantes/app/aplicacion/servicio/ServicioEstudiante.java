@@ -2,7 +2,7 @@ package com.servicios.estudiantes.app.aplicacion.servicio;
 
 import com.servicios.estudiantes.app.aplicacion.puertos.input.EstudianteServicioPuerto;
 import com.servicios.estudiantes.app.aplicacion.puertos.output.EstudiantePersistenciaPuerto;
-import com.servicios.estudiantes.app.dominio.excepciones.EstudianteFoundExcepcion;
+import com.servicios.estudiantes.app.dominio.excepciones.EstudianteNotFoundExcepcion;
 import com.servicios.estudiantes.app.dominio.modelo.Estudiante;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -29,7 +29,7 @@ public class ServicioEstudiante  implements EstudianteServicioPuerto {
     @Override
     public Estudiante obtenerEstudiantePorId(Long id) {
         return estudiantePersistenciaPuerto.obtenerEstudiantePorId(id)
-                .orElseThrow(EstudianteFoundExcepcion::new);
+                .orElseThrow(EstudianteNotFoundExcepcion::new);
     }
 
     @Override
@@ -43,14 +43,14 @@ public class ServicioEstudiante  implements EstudianteServicioPuerto {
                     guardarEstudiante.setEdad(estudiante.getEdad());
                     return estudiantePersistenciaPuerto.crearEstudiante(guardarEstudiante);
                 })
-                .orElseThrow(EstudianteFoundExcepcion::new);
+                .orElseThrow(EstudianteNotFoundExcepcion::new);
     }
 
     @Override
     public void eliminarEstudiante(Long id) {
 
         if (estudiantePersistenciaPuerto.obtenerEstudiantePorId(id).isEmpty()) {
-            throw new EstudianteFoundExcepcion();
+            throw new EstudianteNotFoundExcepcion();
         }
         estudiantePersistenciaPuerto.eliminarEstudiante(id);
     }

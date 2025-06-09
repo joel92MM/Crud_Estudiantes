@@ -1,0 +1,18 @@
+spring:
+    application:
+        name: application
+    jackson:
+        default-property-inclusion: NON_NULL
+        property-naming-strategy: SNAKE_CASE
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: ${DB_HOST}
+        username: ${DB_USER}
+        password: ${DB_PASSWORD}
+    jpa:
+        show-sql: true
+        hibernate:
+            ddl-auto: create
+    logging:
+        level:
+            org.hibernate.SQL: debug
